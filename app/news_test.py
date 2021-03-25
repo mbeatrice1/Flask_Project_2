@@ -1,21 +1,26 @@
 import unittest
 from models import news
+
 News = news.News
 
-class NewsTest(unittest.TestCase):
+class TestArticle(unittest.TestCase):
     '''
-    Test Class to test the behaviour of the Movie class
+    Test Class to test the behaviour of the Source class
     '''
 
     def setUp(self):
         '''
-        Set up method that will run before every Test
+        Method that run before each test case
         '''
-        self.new_news = News(1234,'Python Must Be Crazy','A thrilling new Python Series','https://image.tmdb.org/t/p/w500/khsjha27hbs',8.5,129993)
+        self.new_news = News("abc", "covid", "blablablaa", "http", "http", "2020")
 
-    def test_instance(self):
-        self.assertTrue(isinstance(self.new_news,News)
+    def test_init(self):
+        '''
+        Test case that test if an article is initialized
+        '''
 
+        self.assertEqual("abc", self.new_news.source_name)
+        self.assertEqual("covid", self.new_news.news_title)
 
-if __name__ == '__main__':
+if __name__=='__main__':
     unittest.main()
